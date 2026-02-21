@@ -22,25 +22,28 @@ from nonebot.rule import Rule, to_me
 
 # 先导入依赖
 require("nonebot_plugin_localstore")
+# 然后定义插件元数据
+
 from .config import Config, get_plugin_config, plugin_config
 from .data_manager import MessageRecorder
 from .log_filter import setup_log_filter  # 导入日志过滤器设置函数
 
-# 然后定义插件元数据
 __plugin_meta__ = PluginMetadata(
     name="谁问你了？",
     description="查询谁@了你或引用了你的消息",
-    usage="发送 谁问我了 即可查询",
+    usage="""
+## ❓ 谁问你了
+
+- **[回复某人消息] 谁问你了** / **whoasked** - 生成谁问你了表情包
+""".strip(),
     type="application",
     homepage="https://github.com/enKl03B/nonebot-plugin-whoasked",
     supported_adapters={"~onebot.v11"},
     config=Config,
     extra={
-        "unique_name": "whoasked",
-        "example": "谁问我了",
         "author": "enKl03B",
         "version": "0.2.2",
-        "repository": "https://github.com/enKl03B/nonebot-plugin-whoasked",
+        "menu_type": "一些工具",
     },
 )
 
